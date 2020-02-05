@@ -655,11 +655,11 @@ Monitor cond;
 - リスト構造で管理する．
 
 ```
-struct _EMPTY{
-  uint32_t add;
-  size_t len;
-  struct _EMPTY *next;
-} *elist;
+struct EMPTY{
+  // アドレス
+  // 長さ
+  // ポインタ
+}
 ```
 
 - ベストフィット方式であれば，大きさを基準に昇順に挿入する．
@@ -715,6 +715,7 @@ $ ./main # 実行する．
   - 自身のコードを書き換えない．
   - リエントラントでないプログラムを呼び出さない．
   - 静的変数や大域変数を使わない．
+
 ```
 $ echo "int main(){ int a = 0; return 0; }" > main.c
 $ gcc -O0 -o main main.c
